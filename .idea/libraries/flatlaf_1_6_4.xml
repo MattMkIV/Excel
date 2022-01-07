@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="flatlaf-1.6.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/flatlaf-1.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/miglayout-core-11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/miglayout-swing-11.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
