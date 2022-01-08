@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * Reimplementazione della TableModel.
+ * @author Mattia
  */
 public class MyTableModel extends DefaultTableModel {
     private int row;

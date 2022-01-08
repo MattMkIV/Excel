@@ -12,34 +12,15 @@ import java.util.regex.Pattern;
  * Struttura dati.
  * <p>Classe che inizializza la struttura dati e implementa i medoti per il controllo dei valori inseriti nella JTable
  * e di assegnazione dei vari tipi delle celle utilizzando il polimorfismo</p>
- *
  * @author Mattia
  */
 public class DataStructure implements Serializable {
-    /**
-     * Numero di righe (Default: 100)
-     */
-    private int row = 100;
-    /**
-     * Numero di colonne (Default: 26)
-     */
-    private int col = 26;
-    /**
-     * Componenti dell'operazione
-     */
-    private int[] opComponent;
-    /**
-     * Tipo di operazione
-     */
     private char op;
-    /**
-     * Struttura dati primaria
-     */
+    private int[] opComponent;
+    private final int row = 100;
+    private final int col = 26;
+    private final ArrayList<OperationsIndex> indices;
     private ArrayList<ArrayList<GeneralCell>> matrix;
-    /**
-     * Struttura dati per il salvataggio delle posizione delle operazioni
-     */
-    private ArrayList<OperationsIndex> indices;
 
     /**
      * Inizializza la struttura dati principale ad un numero fissato numero di righe e colonne e quella

@@ -6,15 +6,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
+/**
+ * Implementa i componenti del pannello superiore dell'interfaccia.
+ * @author Mattia
+ */
 public class TopPanel extends JPanel {
-    private JTextField infoBox;
-    private JTextField viewBox;
-    private JButton buttonClear;
-    private JButton buttonSet;
-    private JButton saveAs;
-    private JButton open;
-    private JButton restore;
+    private final JTextField infoBox;
+    private final JTextField viewBox;
+    private final JButton buttonClear;
+    private final JButton buttonSet;
+    private final JButton saveAs;
+    private final JButton open;
+    private final JButton restore;
 
+    /**
+     * Inizializza tutti gli elementi del pannello superiore del programma.
+     * <p>Imposta il layout di questo pannello utilizzando una libreria esterna che permette di adattare
+     * gli elementi al suo interno in base alla dimensione (anche dinamica) del JFrame in cui è inserito.
+     * Inoltre ad ogni elemento aggiunge un ToolTip con una breve descrizione della funzione di quell'elemento,
+     * imposta le icone degli elementi e imposta i parametri di comportamento</p>
+     */
     public TopPanel() {
         setLayout(new MigLayout("fillx"));
 
@@ -135,30 +146,58 @@ public class TopPanel extends JPanel {
         }
     }
 
+    /**
+     * Ritorna il bottone che permette l'apertura di un file.
+     * @return JButton per l'apertura dei file
+     */
     public JButton getOpen() {
         return open;
     }
 
+    /**
+     * Ritorna il bottone che permette di salvare.
+     * @return JButton per il salvataggio
+     */
     public JButton getSaveAs() {
         return saveAs;
     }
 
+    /**
+     * Ritorna il bottone di ripristino del file temporaneo.
+     * @return JButton per il ripristino
+     */
     public JButton getRestore() {
         return restore;
     }
 
+    /**
+     * Ritorna il JTextField che mostra le coordinate della cella selezionata.
+     * @return JTextField che mostra le coordinate
+     */
     public JTextField getInfoBox() {
         return infoBox;
     }
 
+    /**
+     * RItorna il JTextField che permette la modifica delle celle.
+     * @return JTextField che permette la modifica delle celle
+     */
     public JTextField getViewBox() {
         return viewBox;
     }
 
+    /**
+     * Ritorna il JButton che conferma il contenuto inserito nel ViewBox.
+     * @return JButton che conferma il contenuto inserito nel ViewBox
+     */
     public JButton getButtonSet() {
         return buttonSet;
     }
 
+    /**
+     * Ritorna il bottone che resetta il contenuto della cella selezionata.
+     * @return JButton che resetta il contenuto della cella selezionata
+     */
     public JButton getButtonClear() {
         return buttonClear;
     }

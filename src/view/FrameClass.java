@@ -8,6 +8,7 @@ import java.awt.*;
 
 /**
  * Gestisce i componenti dei pannelli.
+ * @author Mattia
  */
 public class FrameClass extends JFrame {
 
@@ -18,8 +19,8 @@ public class FrameClass extends JFrame {
      */
     public FrameClass() {
         FlatDarkLaf.setup();
-        UIManager.put("Button.arc", 14);
-        UIManager.put("TextComponent.arc", 19);
+        UIManager.put("Button.arc", 13);
+        UIManager.put("TextComponent.arc", 18);
 
         setTitle("Foglio elettronico");
 
@@ -51,7 +52,7 @@ public class FrameClass extends JFrame {
         add(scrollable, BorderLayout.CENTER);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setPreferredSize(new Dimension((screenSize.width / 2) + 400,(screenSize.height / 2) + 350));
+        setPreferredSize(new Dimension((screenSize.width / 2) + 600,(screenSize.height / 2) + 450));
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setMaximumSize(screenSize);
         pack();

@@ -16,17 +16,15 @@ import java.util.ArrayList;
  * <p>Classe che assegna la logica al bottone che permette l'apertura di un file salvato</p>
  */
 public class FileOpener extends JFileChooser {
-    /** Percorso in cui salvare il file */
     private File file;
-    /** Struttura dati */
     private DataStructure data;
-    /** JTable per il settaggio dei valori a livello grafico*/
     private JTable table;
     private MyTableModel myTableModel;
 
     /**
      * Costrutture per l'apertura di un file scelto dall'utente.
-     * <p>Permette di aprire un file scelto dall'utente tramite un JFileChooser</p>
+     * <p>Permette di aprire un file scelto dall'utente tramite un JFileChooser, se il file selzionato non termina con
+     * l'estensione ".ex" viene mostrato un errore di incompatibilità</p>
      * @param table JTable su cui mostrare i dati del file
      * @param data Struttura su cui memorizzare i dati del file aperto
      * @param myTableModel TableModel per aggiornare le strutture dati
@@ -42,9 +40,12 @@ public class FileOpener extends JFileChooser {
         int choice = showOpenDialog(null);
 
         if (choice == JFileChooser.APPROVE_OPTION) {
-            this.file = this.getSelectedFile();
+            file = getSelectedFile();
 
-            Opener();
+            if(!file.getPath().endsWith(".ex"))
+                JOptionPane.showMessageDialog(null, "È stato selezionato tipo di file non compatibile", "Formato errato!", JOptionPane.ERROR_MESSAGE);
+            else
+                Opener();
         }
     }
 

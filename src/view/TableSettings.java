@@ -9,6 +9,7 @@ import java.awt.*;
 
 /**
  * Gestione della JTable.
+ * @author Mattia
  */
 public class TableSettings extends JPanel {
     private DataStructure data;

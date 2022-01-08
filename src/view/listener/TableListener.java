@@ -21,7 +21,7 @@ public class TableListener implements TableModelListener {
     @Override
     public void tableChanged(TableModelEvent e) {
         if (!firstMod) {
-            Runnable runnable = () -> new FileSaver(data, new File(System.getProperty("java.io.tmpdir") + File.separator + "ProjectTmp"));
+            Runnable runnable = () -> new FileSaver(data, new File(System.getProperty("java.io.tmpdir") + File.separator + "ProjectTmp.ex"));
 
             ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             executor.scheduleAtFixedRate(runnable, 0, 10, TimeUnit.SECONDS);
