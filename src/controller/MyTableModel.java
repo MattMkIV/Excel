@@ -5,6 +5,7 @@ import model.GeneralCell;
 import model.IntegerCell;
 import model.OperationCell;
 
+import java.util.EventListener;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 

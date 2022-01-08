@@ -10,7 +10,7 @@ public class CellEditor extends DefaultCellEditor {
     private DataStructure data;
 
     public static CellEditor make(DataStructure data) {
-        JTextField field = new JTextField();
+        JTextField field = new JTextField();;
         return new CellEditor(field, data);
     }
 
@@ -25,5 +25,7 @@ public class CellEditor extends DefaultCellEditor {
             return super.getTableCellEditorComponent(table, data.getMatrix().get(row).get(column).getFormula(), isSelected, row, column);
         else
             return super.getTableCellEditorComponent(table, value, isSelected, row, column);
+
+
     }
 }

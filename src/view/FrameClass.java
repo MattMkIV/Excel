@@ -35,6 +35,7 @@ public class FrameClass extends JFrame {
         topPanel.getButtonSet().addActionListener(new ButtonSetListener(topPanel, tableSettings.getTable()));
         topPanel.getOpen().addActionListener(new ButtonOpenListener(tableSettings.getTable(), tableSettings.getData(), tableSettings.getMyTableModel()));
         topPanel.getRestore().addActionListener(new ButtonRestoreListener(tableSettings.getTable(), tableSettings.getData(), tableSettings.getMyTableModel()));
+        topPanel.getViewBox().addKeyListener(new TextFieldViewListener(tableSettings.getTable(), topPanel.getViewBox()));
 
         //tableSettings listeners
         tableSettings.getTable().addMouseListener(new CellMouseListener(tableSettings.getTable(), tableSettings.getData(), topPanel));

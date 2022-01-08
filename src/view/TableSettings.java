@@ -5,6 +5,8 @@ import controller.MyTableModel;
 import view.listener.TableListener;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 
 /**
@@ -26,6 +28,7 @@ public class TableSettings extends JPanel {
 
         table.setRowHeight(22);
         table.setShowGrid(true);
+        table.setFocusable(false);
         table.setCellSelectionEnabled(true);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.getTableHeader().setReorderingAllowed(false);
