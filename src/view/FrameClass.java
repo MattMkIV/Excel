@@ -27,7 +27,7 @@ public class FrameClass extends JFrame {
         setLayout(new BorderLayout());
 
         TopPanel topPanel = new TopPanel();
-        TableSettings tableSettings = new TableSettings();
+        TableSettings tableSettings = new TableSettings(topPanel.getViewBox());
 
         //topPanel listeners
         topPanel.getSaveAs().addActionListener(new ButtonSaverListener(tableSettings.getData()));
@@ -38,9 +38,8 @@ public class FrameClass extends JFrame {
         topPanel.getViewBox().addKeyListener(new TextFieldViewListener(tableSettings.getTable(), topPanel.getViewBox()));
 
         //tableSettings listeners
-        tableSettings.getTable().addMouseListener(new CellMouseListener(tableSettings.getTable(), tableSettings.getData(), topPanel));
         tableSettings.getMyTableModel().addTableModelListener(new TableListener(tableSettings.getData()));
-        tableSettings.getTable().setDefaultEditor(Object.class, CellEditor.make(tableSettings.getData()));
+        tableSettings.getTable().setDefaultEditor(Object.class, CellEditor.make(tableSettings.getData(), topPanel.getViewBox()));
 
         add(topPanel, BorderLayout.NORTH);
 

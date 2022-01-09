@@ -5,7 +5,6 @@ import model.GeneralCell;
 import model.IntegerCell;
 import model.OperationCell;
 
-import java.util.EventListener;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,7 +40,8 @@ public class MyTableModel extends DefaultTableModel {
         for (int i = 0; i < this.row; i++)
             this.rowHeader.addElement(i + 1);
 
-        this.setDataVector(data.getMatrix().stream().map(u -> u.toArray(new GeneralCell[0])).toArray(Object[][]::new), null);
+        //this.setDataVector(data.getMatrix().stream().map(u -> u.toArray(new GeneralCell[0])).toArray(Object[][]::new), null);
+        this.setDataVector(data.getMatrix().stream().map(l -> l.toArray(GeneralCell[]::new)).toArray(GeneralCell[][]::new), null);
     }
 
     /**
@@ -127,7 +127,7 @@ public class MyTableModel extends DefaultTableModel {
         super.fireTableDataChanged();
 
         for (int i = 0; i < data.getIndices().size(); i++) {
-            String cellContent = data.getMatrix().get(data.getIndices().get(i).getRowIndex()).get(data.getIndices().get(i).getColIndex()).getFormula();
+            String cellContent = ((OperationCell) data.getMatrix().get(data.getIndices().get(i).getRowIndex()).get(data.getIndices().get(i).getColIndex())).getFormula();
 
             setValueAt(cellContent, data.getIndices().get(i).getRowIndex(), data.getIndices().get(i).getColIndex());
         }
@@ -139,6 +139,14 @@ public class MyTableModel extends DefaultTableModel {
      */
     public Vector<Integer> getVector() {
         return rowHeader;
+    }
+
+    /**
+     * Ritorna la classe contente la struttura dati.
+     * @return DataStructure
+     */
+    public DataStructure getData() {
+        return data;
     }
 
     @Override

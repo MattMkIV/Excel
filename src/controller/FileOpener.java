@@ -84,7 +84,7 @@ public class FileOpener extends JFileChooser {
             for(int i=0; i<table.getRowCount(); i++) {
                 for(int j=0; j<table.getColumnCount(); j++) {
                     if(data.getMatrix().get(i).get(j) instanceof OperationCell) {
-                        myTableModel.setValueAt(data.getMatrix().get(i).get(j).getFormula(), i, j);
+                        myTableModel.setValueAt(((OperationCell)data.getMatrix().get(i).get(j)).getFormula(), i, j);
                         data.addIndex(i, j);        //la cella è già di tipo Operazione quindi il "setValueAt" non aggiunge questi indici
                     } else
                         table.setValueAt(data.getMatrix().get(i).get(j).toString(), i, j);

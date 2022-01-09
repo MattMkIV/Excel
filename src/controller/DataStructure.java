@@ -178,6 +178,10 @@ public class DataStructure implements Serializable {
         return matrix;
     }
 
+    /**
+     * Ritorna l'array contenente i componenti dell'operazione immessa dall'utente.
+     * @return Array di interi
+     */
     public int[] getOpComponent() {
         return opComponent;
     }

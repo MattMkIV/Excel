@@ -16,23 +16,17 @@ import java.awt.*;
 public class TableSettings extends JPanel {
     private DataStructure data;
     private MyTableModel myTableModel;
-    private JTable table;
+    private MyJTable table;
 
     /**
      * Vengono impostati i valori grafici della JTable e inizializzati i valori della struttura dati.
      */
-    public TableSettings() {
+    public TableSettings(JTextField viewBox) {
         data = new DataStructure();
         myTableModel = new MyTableModel(data);
-        table = new JTable(myTableModel);
+        table = new MyJTable(myTableModel, viewBox);
 
-        table.setRowHeight(22);
-        table.setShowGrid(true);
-        table.setFocusable(false);
-        table.setCellSelectionEnabled(true);
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        table.getTableHeader().setReorderingAllowed(false);
-        table.setSelectionBackground(new Color(0, 0, 0, 45));
+
 
         add(table);
     }

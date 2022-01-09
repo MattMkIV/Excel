@@ -21,10 +21,6 @@ public class GeneralCell implements Serializable {
         return "";
     }
 
-    public String getFormula() {
-        return null;
-    }
-
     public int getResult() {
         return 0;
     }

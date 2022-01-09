@@ -36,7 +36,6 @@ public class OperationCell extends GeneralCell implements Serializable {
         return result;
     }
 
-    @Override
     public String getFormula() {
         return formula;
     }
