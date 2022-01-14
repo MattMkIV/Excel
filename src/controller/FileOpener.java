@@ -1,24 +1,35 @@
 package controller;
 
 import model.GeneralCell;
-import model.IntegerCell;
 import model.OperationCell;
-import model.OperationsIndex;
-import view.listener.TableListener;
+import view.MyJTable;
 
 import javax.swing.*;
-import javax.swing.event.TableModelEvent;
 import java.io.*;
 import java.util.ArrayList;
 
 /**
  * Implementazione dell'apertura di un file salvato.
- * <p>Classe che assegna la logica al bottone che permette l'apertura di un file salvato</p>
+ * <p>Classe che assegna la logica ai bottoni che permettono l'apertura di un file salvato/temporaneo</p>
+ * @author Mattia Lazzarini
+ * @see javax.swing.JFileChooser
  */
 public class FileOpener extends JFileChooser {
+    /**
+     * Percorso del file da aprire
+     */
     private File file;
+    /**
+     * {@link DataStructure}
+     */
     private DataStructure data;
-    private JTable table;
+    /**
+     * {@link MyJTable}
+     */
+    private MyJTable table;
+    /**
+     * {@link MyTableModel}
+     */
     private MyTableModel myTableModel;
 
     /**
@@ -29,7 +40,7 @@ public class FileOpener extends JFileChooser {
      * @param data Struttura su cui memorizzare i dati del file aperto
      * @param myTableModel TableModel per aggiornare le strutture dati
      */
-    public FileOpener(JTable table, DataStructure data, MyTableModel myTableModel) {
+    public FileOpener(MyJTable table, DataStructure data, MyTableModel myTableModel) {
         this.table = table;
         this.data = data;
         this.myTableModel = myTableModel;
@@ -58,7 +69,7 @@ public class FileOpener extends JFileChooser {
      * @param myTableModel TableModel per aggiornare le strutture dati
      * @param file Percorso della cartella temp in base al sistema operativo
      */
-    public FileOpener(JTable table, DataStructure data,  MyTableModel myTableModel, File file) {
+    public FileOpener(MyJTable table, DataStructure data,  MyTableModel myTableModel, File file) {
         this.table = table;
         this.data = data;
         this.file = file;
@@ -74,6 +85,13 @@ public class FileOpener extends JFileChooser {
             JOptionPane.showMessageDialog(null, "Nessun file temporaneo trovato", "Errore!", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Metodo che gestisce l'apertura di un file.
+     * <p>In base al percorso memorizzato in "file" reinizializza la matrice contenuta in {@link DataStructure}
+     * e reimposta la struttura dati secondaria per la memorizazione degli indici delle celle operazione</p>
+     * @see FileOutputStream
+     * @see ObjectOutputStream
+     */
     private void Opener() {
         try {
             FileInputStream fileIn = new FileInputStream(this.file);

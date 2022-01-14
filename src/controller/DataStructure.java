@@ -12,19 +12,41 @@ import java.util.regex.Pattern;
  * Struttura dati.
  * <p>Classe che inizializza la struttura dati e implementa i medoti per il controllo dei valori inseriti nella JTable
  * e di assegnazione dei vari tipi delle celle utilizzando il polimorfismo</p>
- * @author Mattia
+ * @author Mattia Lazzarini
+ * @see java.io.Serializable
  */
 public class DataStructure implements Serializable {
+    /**
+     * Tipo di operazione.
+     */
     private char op;
+    /**
+     * Valori dell'operazione.
+     */
     private int[] opComponent;
+    /**
+     * Numero di righe.
+     */
     private final int row = 100;
+    /**
+     * Numero di colonne.
+     */
     private final int col = 26;
+    /**
+     * Struttura dati secondaria per la memorizzazione delle posizioni delle celle di
+     * tipo operazione.
+     * @see ArrayList
+     */
     private final ArrayList<OperationsIndex> indices;
+    /**
+     * Struttura dati principale del foglio di calcolo.
+     * @see ArrayList
+     */
     private ArrayList<ArrayList<GeneralCell>> matrix;
 
     /**
      * Inizializza la struttura dati principale ad un numero fissato numero di righe e colonne e quella
-     * per la memorizzazione degli indici di tutte le formule(Default: 5)
+     * per la memorizzazione degli indici di tutte le formule(Default: 5).
      */
     public DataStructure() {
         matrix = new ArrayList<>(row);
@@ -32,7 +54,7 @@ public class DataStructure implements Serializable {
         for (int i = 0; i < row; i++) {
             matrix.add(new ArrayList<>(col));
             for (int j = 0; j < col; j++)
-                matrix.get(i).add(new GeneralCell(i, j));
+                matrix.get(i).add(new GeneralCell());
         }
 
         indices = new ArrayList<>(5);
@@ -103,9 +125,9 @@ public class DataStructure implements Serializable {
     }
 
     /**
-     * Vengono estratti dalla formula le informazioni relative al valore degli operandi.
+     * Vengono estratti dalla formula con interi le informazioni relative al valore degli operandi.
      * <p>Le informazioni estratte vengono salvati all'interno di un array di interi opCompnent, mentre il tipo di
-     * operazione da compiere sugli operandi viene salvato all'interno del char op</p>
+     * operazione da compiere sugli operandi viene salvato all'interno del char op.</p>
      * @param cellContent Contenuto della cella di tipo formula
      */
     public void takeOperand(String cellContent) {
@@ -130,7 +152,7 @@ public class DataStructure implements Serializable {
     /**
      * Verifica sul tipo di operandi inseriti nella formula.
      * <p>Viene ritornato False se almeno uno dei due operandi fa riferimento ad un oggetto di tipo String
-     * altrimenti viene ritornato True</p>
+     * altrimenti viene ritornato True.</p>
      *
      * @return True se l'oprazione può essere effettuata
      */
@@ -161,8 +183,7 @@ public class DataStructure implements Serializable {
     }
 
     /**
-     * Ritorno la struttura dati contenente gli indici delle operazioni.
-     *
+     * Ritorna la struttura dati contenente gli indici delle operazioni.
      * @return Struttura dati contenente gli indici delle operazioni
      */
     public ArrayList<OperationsIndex> getIndices() {
@@ -171,7 +192,6 @@ public class DataStructure implements Serializable {
 
     /**
      * Ritorna la matrice contenente tutti i valori inseriti e le relative informazioni.
-     *
      * @return Matrice contenente tutti i valori inseriti e le relative informazioni
      */
     public ArrayList<ArrayList<GeneralCell>> getMatrix() {
@@ -196,7 +216,7 @@ public class DataStructure implements Serializable {
     }
 
     /**
-     * Ritorna il di righe della JTable e della matrice.
+     * Ritorna il numero di righe della JTable e della matrice.
      *
      * @return Numero di righe della JTable e della matrice
      */

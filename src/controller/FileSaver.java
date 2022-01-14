@@ -5,16 +5,25 @@ import java.io.*;
 
 /**
  * Salvataggio del foglio elettronico.
+ * <p>Assegna la logica al bottone per il salvataggio manuale e gestisce il salvataggio automatico</p>
+ * @author Mattia Lazzarini
+ * @see javax.swing.JFileChooser
  */
 public class FileSaver extends JFileChooser {
+    /**
+     * Percorso in cui salvare il file
+     */
     private File file;
+    /**
+     * {@link DataStructure}
+     */
     private DataStructure data;
 
     /**
      * Costruttore per il salvataggio manuale.
-     * Mostra un JFileChooser per permettere all'utente di selezionare il percorso in cui salvare il file e se nome
+     * <p>Mostra un JFileChooser per permettere all'utente di selezionare il percorso in cui salvare il file e se il nome
      * del file inserito dall'utente esiste già in quella cartella viene chiesto se si vuole sovrascrivere, inoltre
-     * aggiunge l'estensione .ex al nome del file
+     * aggiunge l'estensione .ex al nome del file.</p>
      * @param data Classe con la struttura dati
      */
     public FileSaver(DataStructure data) {
@@ -44,7 +53,7 @@ public class FileSaver extends JFileChooser {
 
     /**
      * Costruttore per il salvataggio automatico.
-     * Salva automaticamente il foglio elettronico nella cartella temp del sistema operativo ogni 2 secondi
+     * <p>Salva automaticamente il foglio elettronico nella cartella temp del sistema operativo ogni 10 secondi.</p>
      * @param data Classe con la struttura dati
      * @param file Percorso di salvataggio automatico
      */
@@ -53,9 +62,15 @@ public class FileSaver extends JFileChooser {
         this.file = file;
 
         Saver();
-        System.out.println("file TEMPORANEO salvato");
     }
 
+    /**
+     * Metodo che gestisce il salvataggio.
+     * <p>In base al percorso salvato nell'oggetto "file" viene salvato un file binario contenente la struttura dati
+     * principale {@link DataStructure}</p>
+     * @see FileOutputStream
+     * @see ObjectOutputStream
+     */
     private void Saver() {
         try {
             FileOutputStream fos = new FileOutputStream(this.file);

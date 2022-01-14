@@ -26,8 +26,6 @@ public class TableSettings extends JPanel {
         myTableModel = new MyTableModel(data);
         table = new MyJTable(myTableModel, viewBox);
 
-
-
         add(table);
     }
 
@@ -35,7 +33,7 @@ public class TableSettings extends JPanel {
      * Ritorna la JTable.
      * @return JTable
      */
-    public JTable getTable() {
+    public MyJTable getTable() {
         return table;
     }
 

@@ -1,6 +1,9 @@
 package model;
 
-public class OperationsIndex {
+import java.io.Serializable;
+
+
+public class OperationsIndex  implements Serializable {
     private int rowIndex;
     private int colIndex;
 

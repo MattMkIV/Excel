@@ -8,11 +8,9 @@ import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
 public class MyJTable extends JTable {
-    private MyTableModel myTableModel;
     private JTextField viewBox;
 
     public MyJTable(MyTableModel myTableModel, JTextField viewBox) {
-        this.myTableModel = myTableModel;
         this.viewBox = viewBox;
 
         setRowHeight(22);
@@ -41,7 +39,7 @@ public class MyJTable extends JTable {
         Object value = super.getValueAt(row, col);
         JComponent cellRenderer = (JComponent) renderer.getTableCellRendererComponent(this, value, isSelected, hasFocus, row, col);
 
-        if(isSelected) {    //sia selezionata sia con focus
+        if(isSelected) {
             if(((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col) instanceof OperationCell)
                 viewBox.setText(((OperationCell) ((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col)).getFormula());
             else {

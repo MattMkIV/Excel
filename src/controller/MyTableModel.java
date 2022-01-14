@@ -9,19 +9,32 @@ import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * Reimplementazione della TableModel.
- * @author Mattia
+ * Reimplementazione della TableModel per gestire i vari tipi di dati inseriti.
+ * @author Mattia Lazzarini
+ * @see DefaultTableModel
  */
 public class MyTableModel extends DefaultTableModel {
+    /**
+     * Numero di righe.
+     */
     private int row;
+    /**
+     * Numero di colonne.
+     */
     private int col;
+    /**
+     * Struttura dati {@link DataStructure}
+     */
     private DataStructure data;
+    /**
+     * Indici di riga.
+     */
     private final Vector<Integer> rowHeader;
 
     /**
      * Inizializza i parametri di default della TableModel.
      * <p>Vengono impostati i valori relativi al numero di righe e colonne della JTable, impostata la grafica degli indici di riga,
-     * viene salvata una copia per riferimento della struttura dati e popolata la tabella in base ai valori della matrice in "data"</p>
+     * viene salvata una copia per riferimento della struttura dati e popolata la tabella in base ai valori della matrice in "data".</p>
      *
      * @param data Parametro contenente la struttura dati
      */
@@ -36,12 +49,16 @@ public class MyTableModel extends DefaultTableModel {
         this.populateTable();
     }
 
+    /**
+     * Popola il gli elementi della TableModel.
+     * <p>Setta tutti gli indici da visualizzare come indici di riga e in base al contenuto della struttura dati
+     * principale contenuta all'interno di data modifica la TableModel.</p>
+     */
     private void populateTable() {
         for (int i = 0; i < this.row; i++)
             this.rowHeader.addElement(i + 1);
 
-        //this.setDataVector(data.getMatrix().stream().map(u -> u.toArray(new GeneralCell[0])).toArray(Object[][]::new), null);
-        this.setDataVector(data.getMatrix().stream().map(l -> l.toArray(GeneralCell[]::new)).toArray(GeneralCell[][]::new), null);
+        setDataVector(data.getMatrix().stream().map(u -> u.toArray(new GeneralCell[0])).toArray(Object[][]::new), null);
     }
 
     /**
@@ -79,6 +96,7 @@ public class MyTableModel extends DefaultTableModel {
 
                 data.getMatrix().get(row).set(col, new OperationCell((String) value, data.getOp(), data.getOpComponent()[0], data.getOpComponent()[1]));
                 super.setValueAt(data.getMatrix().get(row).get(col).getResult(), row, col);
+                fireTableDataChanged();
                 break;
             }
             case 3: {
@@ -86,21 +104,21 @@ public class MyTableModel extends DefaultTableModel {
                 break;
             }
             case 4: {
-                data.getMatrix().get(row).set(col, new GeneralCell(row, col));
+                data.getMatrix().get(row).set(col, new GeneralCell());
                 break;
             }
         }
 
         if (cellType != 1 && cellType != 2) {
             super.setValueAt(value, row, col);
-            this.fireTableDataChanged();
+            fireTableDataChanged();
         }
     }
 
     /**
      * Imposta nella matrice il tipo di cella Operazione.
-     * <p>Setta la matrice nella posizione di riga e colonna come tipo Operazione e se la cella non lo era
-     * già allora viene aggiornata la lista con i riferimenti alle celle Operazione</p>
+     * <p>Setta la matrice nella posizione di riga e colonna come tipo Operazione con riferimenti ad altre celle
+     * e se la cella non lo era già allora viene aggiornata la lista con i riferimenti alle celle Operazione.</p>
      *
      * @param value Valore inserito nella cella
      * @param row   Indice di riga della cella modificata
@@ -120,7 +138,8 @@ public class MyTableModel extends DefaultTableModel {
 
     /**
      * Aggiorna la struttura dati e la grafica della JTable con i cambiamenti.
-     * <p>Scorre la lista contente gli indici in cui sono presenti operazioni e le aggiorna se sono variati dei valori negli operandi</p>
+     * <p>Scorre la lista contente gli indici in cui sono presenti operazioni e le aggiorna se sono variati dei valori
+     * negli operandi.</p>
      */
     @Override
     public void fireTableDataChanged() {
@@ -135,6 +154,7 @@ public class MyTableModel extends DefaultTableModel {
 
     /**
      * Ritorna il Vector che contiene gli indici di riga
+     *
      * @return Indici di riga
      */
     public Vector<Integer> getVector() {
@@ -143,17 +163,26 @@ public class MyTableModel extends DefaultTableModel {
 
     /**
      * Ritorna la classe contente la struttura dati.
+     *
      * @return DataStructure
      */
     public DataStructure getData() {
         return data;
     }
 
+    /**
+     * Ritorna il numero di righe della JTable.
+     * @return Numero di righe
+     */
     @Override
     public int getRowCount() {
         return row;
     }
 
+    /**
+     * Ritorna il numero di colonne della JTable.
+     * @return Numero di colonne
+     */
     @Override
     public int getColumnCount() {
         return col;
