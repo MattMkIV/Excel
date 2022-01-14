@@ -1,5 +1,7 @@
 package view.listener;
 
+import view.MyJTable;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -7,9 +9,17 @@ import java.awt.event.KeyListener;
 /**
  * Implementa il listener di una JTextField per confermare il contenuto inserito al suo interno e inserirlo nella
  * struttura dati se una cella della JTable è selezionata.
+ * @author Mattia Lazzarini
+ * @see KeyListener
  */
 public class TextFieldViewListener implements KeyListener {
-    private JTable table;
+    /**
+     * MyJTable {@link MyJTable}.
+     */
+    private MyJTable table;
+    /**
+     * JTextField per la visualizzazione delle formule.
+     */
     private JTextField viewBox;
 
     /**
@@ -17,14 +27,14 @@ public class TextFieldViewListener implements KeyListener {
      * @param table JTable sul quale compare la modifica
      * @param viewBox Componente su cui applicare il listener
      */
-    public TextFieldViewListener(JTable table, JTextField viewBox) {
+    public TextFieldViewListener(MyJTable table, JTextField viewBox) {
         this.table = table;
         this.viewBox = viewBox;
     }
 
     /**
      * Controlla il carattere digitato e se equivale al "new line" salva il contenuto del TextField nella matrice.
-     * @param e KeyEvent
+     * @param e {@link KeyEvent}
      */
     @Override
     public void keyTyped(KeyEvent e) {
