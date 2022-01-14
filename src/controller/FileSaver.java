@@ -11,7 +11,7 @@ import java.io.*;
  */
 public class FileSaver extends JFileChooser {
     /**
-     * Percorso in cui salvare il file
+     * Percorso in cui salvare il file.
      */
     private File file;
     /**

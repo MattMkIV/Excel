@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public class StringCell extends GeneralCell implements Serializable {
     /**
-     * Stringa inserita
+     * Stringa inserita.
      */
     private String string;
 

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class FileOpener extends JFileChooser {
     /**
-     * Percorso del file da aprire
+     * Percorso del file da aprire.
      */
     private File file;
     /**
