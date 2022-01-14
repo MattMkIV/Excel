@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 
 /**
- * Classe per la gestione degli indici delle celle di tipo operazione.
+ * Gestisce gli indici delle celle di tipo operazione.
  * <p>Memorizza gli indici di una cella di tipo operazione.</p>
  * @author Mattia Lazzarini
  * @see java.io.Serializable

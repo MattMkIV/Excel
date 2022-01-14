@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Implementazione dell'apertura di un file salvato.
+ * Apertura di un file salvato.
  * <p>Classe che assegna la logica ai bottoni che permettono l'apertura di un file salvato/temporaneo</p>
  * @author Mattia Lazzarini
  * @see javax.swing.JFileChooser
