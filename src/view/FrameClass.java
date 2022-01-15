@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Gestisce i componenti dei pannelli.
- * @author Mattia
+ * Gestisce il {@link JFrame}, i suoi pannelli e i listeners dei componenti.
+ * @author Mattia Lazzarini
  */
 public class FrameClass extends JFrame {
 

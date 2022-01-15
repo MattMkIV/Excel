@@ -1,29 +1,43 @@
 package view;
 
 import net.miginfocom.swing.MigLayout;
-import view.listener.TextFieldViewListener;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.event.UndoableEditEvent;
-import javax.swing.event.UndoableEditListener;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.geom.AffineTransform;
 
 /**
  * Implementa i componenti del pannello superiore dell'interfaccia.
- * @author Mattia
+ * @author Mattia Lazzarini
+ * @see JPanel
  */
 public class TopPanel extends JPanel {
+    /**
+     * Mostra le coordinate della cella selezionata.
+     */
     private final JTextField infoBox;
+    /**
+     * Mostra le formula e può essere modificato.
+     */
     private final JTextField viewBox;
+    /**
+     * Bottone per il reset del contenuto di una cella.
+     */
     private final JButton buttonClear;
+    /**
+     * Bottone per confermare il contenuto della viewBox.
+     */
     private final JButton buttonSet;
+    /**
+     * Bottone per il salvataggio manuale.
+     */
     private final JButton saveAs;
+    /**
+     * Bottone per aprire un file.
+     */
     private final JButton open;
+    /**
+     * Bottone per ripristinare il file temporaneo.
+     */
     private final JButton restore;
 
     /**
@@ -48,7 +62,7 @@ public class TopPanel extends JPanel {
         Image img = icon.getImage().getScaledInstance(buttonClear.getWidth(), buttonClear.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
-        buttonClear.setIcon(new NoScalingIcon(icon));
+        buttonClear.setIcon(icon);
         buttonClear.setSelected(false);
         buttonClear.setBorderPainted(false);
         buttonClear.setToolTipText("Cancella contenuto cella");
@@ -60,7 +74,7 @@ public class TopPanel extends JPanel {
         img = icon.getImage().getScaledInstance(buttonSet.getWidth(), buttonSet.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
-        buttonSet.setIcon(new NoScalingIcon(icon));
+        buttonSet.setIcon(icon);
         buttonSet.setToolTipText("Imposta valore cella");
         buttonSet.setBorderPainted(false);
 
@@ -75,7 +89,7 @@ public class TopPanel extends JPanel {
         img = icon.getImage().getScaledInstance(saveAs.getWidth(), saveAs.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
-        saveAs.setIcon(new NoScalingIcon(icon));
+        saveAs.setIcon(icon);
         saveAs.setToolTipText("Salva");
         saveAs.setBorderPainted(false);
         saveAs.setSelected(false);
@@ -87,7 +101,7 @@ public class TopPanel extends JPanel {
         img = icon.getImage().getScaledInstance(open.getWidth(), open.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
-        open.setIcon(new NoScalingIcon(icon));
+        open.setIcon(icon);
         open.setToolTipText("Apri");
         open.setBorderPainted(false);
         open.setSelected(false);
@@ -99,7 +113,7 @@ public class TopPanel extends JPanel {
         img = icon.getImage().getScaledInstance(restore.getWidth(), restore.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
-        restore.setIcon(new NoScalingIcon(icon));
+        restore.setIcon(icon);
         restore.setToolTipText("Ripristina il foglio perso");
         restore.setBorderPainted(false);
         restore.setSelected(false);
@@ -112,45 +126,6 @@ public class TopPanel extends JPanel {
         add(saveAs);
         add(open);
         add(restore);
-    }
-
-    private class NoScalingIcon implements Icon {
-        private Icon icon;
-
-        public NoScalingIcon(Icon icon) {
-            this.icon = icon;
-        }
-
-        public int getIconWidth() {
-            return icon.getIconWidth();
-        }
-
-        public int getIconHeight() {
-            return icon.getIconHeight();
-        }
-
-        public void paintIcon(Component c, Graphics g, int x, int y) {
-            Graphics2D g2d = (Graphics2D) g.create();
-
-            AffineTransform at = g2d.getTransform();
-
-            int scaleX = (int) (x * at.getScaleX());
-            int scaleY = (int) (y * at.getScaleY());
-
-            int offsetX = (int) (icon.getIconWidth() * (at.getScaleX() - 1) / 2);
-            int offsetY = (int) (icon.getIconHeight() * (at.getScaleY() - 1) / 2);
-
-            int locationX = scaleX + offsetX;
-            int locationY = scaleY + offsetY;
-
-            AffineTransform scaled = AffineTransform.getScaleInstance(1.0 / at.getScaleX(), 1.0 / at.getScaleY());
-            at.concatenate(scaled);
-            g2d.setTransform(at);
-
-            icon.paintIcon(c, g2d, locationX, locationY);
-
-            g2d.dispose();
-        }
     }
 
     /**
@@ -175,14 +150,6 @@ public class TopPanel extends JPanel {
      */
     public JButton getRestore() {
         return restore;
-    }
-
-    /**
-     * Ritorna il JTextField che mostra le coordinate della cella selezionata.
-     * @return JTextField che mostra le coordinate
-     */
-    public JTextField getInfoBox() {
-        return infoBox;
     }
 
     /**

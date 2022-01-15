@@ -7,9 +7,23 @@ import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
+/**
+ * Estende la classe {@link JTable} rendendo modificabile la formula se la cella è di tipo formula e setta la JTable.
+ * @author Mattia Lazzarini
+ * @see JTable
+ */
 public class MyJTable extends JTable {
+    /**
+     * JTextField che mostra le informazioni di una cella.
+     * @see TopPanel
+     */
     private JTextField viewBox;
 
+    /**
+     * Salva il JTextField da modificare in caso di selezione di una cella e imposta  i comportamenti della JTable.
+     * @param myTableModel TableModel
+     * @param viewBox JTextField che mostra le informazioni di una cella
+     */
     public MyJTable(MyTableModel myTableModel, JTextField viewBox) {
         this.viewBox = viewBox;
 
@@ -23,7 +37,13 @@ public class MyJTable extends JTable {
         setSelectionBackground(new Color(0, 0, 0, 45));
     }
 
-
+    /**
+     * Modifica il testo che deve essere mostrato sul viewBox una volta selezionata una cella.
+     * @param renderer {@link TableCellRenderer}
+     * @param row Indice di riga
+     * @param col Indice di colonna
+     * @return cellRenderer
+     */
     @Override
     public Component prepareRenderer(TableCellRenderer renderer, int row, int col) {
         Boolean isSelected = false;

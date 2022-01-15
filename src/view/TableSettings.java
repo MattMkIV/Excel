@@ -2,24 +2,34 @@ package view;
 
 import controller.DataStructure;
 import controller.MyTableModel;
-import view.listener.TableListener;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import java.awt.*;
 
 /**
- * Gestione della JTable.
- * @author Mattia
+ * Gestione del JPanel contentente la MyJTable.
+ * @author Mattia Lazzarini
+ * @see JPanel
  */
 public class TableSettings extends JPanel {
+    /**
+     * Struttura dati {@link DataStructure}.
+     */
     private DataStructure data;
+    /**
+     * TableModel {@link MyTableModel}.
+     */
     private MyTableModel myTableModel;
+    /**
+     * MyJTable {@link MyJTable}.
+     */
     private MyJTable table;
 
     /**
-     * Vengono impostati i valori grafici della JTable e inizializzati i valori della struttura dati.
+     * Vengono inizializzate le classi contenenti la struttura dati, il TableModel e la MyJTable.
+     * @param viewBox JTextField con cui l'utente può interagire
+     * @see MyTableModel
+     * @see MyJTable
+     * @see DataStructure
      */
     public TableSettings(JTextField viewBox) {
         data = new DataStructure();
@@ -30,8 +40,8 @@ public class TableSettings extends JPanel {
     }
 
     /**
-     * Ritorna la JTable.
-     * @return JTable
+     * Ritorna la MyJTable.
+     * @return MyJTable
      */
     public MyJTable getTable() {
         return table;
