@@ -17,6 +17,9 @@ import java.awt.*;
  * @see DefaultCellEditor
  */
 public class CellEditor extends DefaultCellEditor {
+    /**
+     * {@link DataStructure}
+     */
     private DataStructure data;
 
     /**

@@ -16,7 +16,7 @@ public class StringCell extends GeneralCell implements Serializable {
 
     /**
      * Salva la stringa inserita dall'utente nella JTable.
-     * @param string
+     * @param string Stringa inserita
      */
     public StringCell(String string) {
         this.string = string;
