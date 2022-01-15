@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Implementa il listener della MyJTable.
+ *
  * @author Mattia Lazzarini
  * @see TableListener
  */
@@ -27,6 +28,7 @@ public class TableListener implements TableModelListener {
 
     /**
      * Salva la struttura dati {@link DataStructure}.
+     *
      * @param data Struttura dati {@link DataStructure}
      */
     public TableListener(DataStructure data) {
@@ -35,6 +37,7 @@ public class TableListener implements TableModelListener {
 
     /**
      * Avvia il salvataggio automatico quando viene effettuata la prima modifica alla JTable.
+     *
      * @param e {@link TableModelEvent}
      */
     @Override

@@ -8,6 +8,7 @@ import java.awt.*;
 
 /**
  * Gestisce il {@link JFrame}, i suoi pannelli e i listeners dei componenti.
+ *
  * @author Mattia Lazzarini
  */
 public class FrameClass extends JFrame {
@@ -52,7 +53,7 @@ public class FrameClass extends JFrame {
         add(scrollable, BorderLayout.CENTER);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setPreferredSize(new Dimension((screenSize.width / 2) + 600,(screenSize.height / 2) + 450));
+        setPreferredSize(new Dimension((screenSize.width / 2) + 600, (screenSize.height / 2) + 450));
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setMaximumSize(screenSize);
         pack();

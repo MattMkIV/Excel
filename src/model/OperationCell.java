@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Implementa il tipo cella operazione.
+ *
  * @author Mattia Lazzarini
  * @see model.GeneralCell
  * @see java.io.Serializable
@@ -40,9 +41,9 @@ public class OperationCell extends GeneralCell implements Serializable {
      * <p>Inoltre in base al tipo di operazione effettua e memorizza il risultato dell'operazione.</p>
      * <p>Se viene effettuata una divisione con un denominatore pari a 0 allora viene impostato un risultato pari a 0.</p>
      *
-     * @param formula Formula
-     * @param op Tipo di operazione
-     * @param firstOpValue Valore del primo operando
+     * @param formula       Formula
+     * @param op            Tipo di operazione
+     * @param firstOpValue  Valore del primo operando
      * @param secondOpValue Valore del secondo operando
      */
     public OperationCell(String formula, char op, int firstOpValue, int secondOpValue) {
@@ -70,8 +71,10 @@ public class OperationCell extends GeneralCell implements Serializable {
                 break;
         }
     }
+
     /**
      * Ritorna il risultato dell'operazione.
+     *
      * @return Risultato
      */
     @Override
@@ -81,6 +84,7 @@ public class OperationCell extends GeneralCell implements Serializable {
 
     /**
      * Ritorna l'operazione.
+     *
      * @return Operazione
      */
     public String getFormula() {
@@ -89,6 +93,7 @@ public class OperationCell extends GeneralCell implements Serializable {
 
     /**
      * Ritorna il risultato sottoforma di stringa.
+     *
      * @return Risultato memorizzato di tipo stringa
      */
     @Override

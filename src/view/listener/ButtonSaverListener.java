@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Implementa l'evento del salvataggio manuale.
+ *
  * @author Mattia Lazzarini
  * @see ActionListener
  */
@@ -19,6 +20,7 @@ public class ButtonSaverListener implements ActionListener {
 
     /**
      * Salva la struttura dati {@link DataStructure}.
+     *
      * @param data Struttura dati
      */
     public ButtonSaverListener(DataStructure data) {
@@ -27,6 +29,7 @@ public class ButtonSaverListener implements ActionListener {
 
     /**
      * Crea un oggetto {@link FileSaver}.
+     *
      * @param e {@link ActionEvent}
      */
     @Override

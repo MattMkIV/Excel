@@ -5,10 +5,11 @@ import java.io.Serializable;
 /**
  * Gestisce gli indici delle celle di tipo operazione.
  * <p>Memorizza gli indici di una cella di tipo operazione.</p>
+ *
  * @author Mattia Lazzarini
  * @see java.io.Serializable
  */
-public class OperationsIndex  implements Serializable {
+public class OperationsIndex implements Serializable {
     /**
      * Indice di riga.
      */
@@ -20,6 +21,7 @@ public class OperationsIndex  implements Serializable {
 
     /**
      * Salva gli indici di riga e di colonna della cella di tipo operazione.
+     *
      * @param rowIndex Indice di riga
      * @param colIndex Indice di colonna
      */
@@ -30,6 +32,7 @@ public class OperationsIndex  implements Serializable {
 
     /**
      * Ritorna l'indice di riga.
+     *
      * @return Indice di riga
      */
     public int getRowIndex() {
@@ -38,6 +41,7 @@ public class OperationsIndex  implements Serializable {
 
     /**
      * Ritorna l'indice di colonna.
+     *
      * @return Indice di colonna
      */
     public int getColIndex() {

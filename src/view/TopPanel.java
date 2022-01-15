@@ -7,6 +7,7 @@ import java.awt.*;
 
 /**
  * Implementa i componenti del pannello superiore dell'interfaccia.
+ *
  * @author Mattia Lazzarini
  * @see JPanel
  */
@@ -130,6 +131,7 @@ public class TopPanel extends JPanel {
 
     /**
      * Ritorna il bottone che permette l'apertura di un file.
+     *
      * @return JButton per l'apertura dei file
      */
     public JButton getOpen() {
@@ -138,6 +140,7 @@ public class TopPanel extends JPanel {
 
     /**
      * Ritorna il bottone che permette di salvare.
+     *
      * @return JButton per il salvataggio
      */
     public JButton getSaveAs() {
@@ -146,6 +149,7 @@ public class TopPanel extends JPanel {
 
     /**
      * Ritorna il bottone di ripristino del file temporaneo.
+     *
      * @return JButton per il ripristino
      */
     public JButton getRestore() {
@@ -154,6 +158,7 @@ public class TopPanel extends JPanel {
 
     /**
      * RItorna il JTextField che permette la modifica delle celle.
+     *
      * @return JTextField che permette la modifica delle celle
      */
     public JTextField getViewBox() {
@@ -162,6 +167,7 @@ public class TopPanel extends JPanel {
 
     /**
      * Ritorna il JButton che conferma il contenuto inserito nel ViewBox.
+     *
      * @return JButton che conferma il contenuto inserito nel ViewBox
      */
     public JButton getButtonSet() {
@@ -170,6 +176,7 @@ public class TopPanel extends JPanel {
 
     /**
      * Ritorna il bottone che resetta il contenuto della cella selezionata.
+     *
      * @return JButton che resetta il contenuto della cella selezionata
      */
     public JButton getButtonClear() {

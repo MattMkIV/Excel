@@ -7,6 +7,7 @@ import javax.swing.*;
 
 /**
  * Gestione del JPanel contentente la MyJTable.
+ *
  * @author Mattia Lazzarini
  * @see JPanel
  */
@@ -26,6 +27,7 @@ public class TableSettings extends JPanel {
 
     /**
      * Vengono inizializzate le classi contenenti la struttura dati, il TableModel e la MyJTable.
+     *
      * @param viewBox JTextField con cui l'utente può interagire
      * @see MyTableModel
      * @see MyJTable
@@ -41,6 +43,7 @@ public class TableSettings extends JPanel {
 
     /**
      * Ritorna la MyJTable.
+     *
      * @return MyJTable
      */
     public MyJTable getTable() {
@@ -49,6 +52,7 @@ public class TableSettings extends JPanel {
 
     /**
      * Ritorna la classe contenente la struttura dati.
+     *
      * @return Classe contenente la struttura dati
      */
     public DataStructure getData() {
@@ -57,6 +61,7 @@ public class TableSettings extends JPanel {
 
     /**
      * Ritorna il Model della JTable.
+     *
      * @return Modello della JTable
      */
     public MyTableModel getMyTableModel() {

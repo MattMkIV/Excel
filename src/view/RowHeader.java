@@ -7,6 +7,7 @@ import java.awt.*;
 
 /**
  * Imposta graficamente il componente che visualizza gli indici di riga.
+ *
  * @author Mattia Lazzarini
  */
 public class RowHeader {
@@ -17,8 +18,9 @@ public class RowHeader {
 
     /**
      * Inizializza una JList e ne imposta la grafica adattandosi al TableHeader della JTable.
+     *
      * @param myTableMode TableModel dai cui prendere il Vector di interi
-     * @param table MyJTable
+     * @param table       MyJTable
      */
     public RowHeader(MyTableModel myTableMode, MyJTable table) {
 
@@ -36,6 +38,7 @@ public class RowHeader {
 
     /**
      * Ritorna la JList da poter usare come componente per gli indici di riga.
+     *
      * @return JList
      */
     public JList getRowHeader() {

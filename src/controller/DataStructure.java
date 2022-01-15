@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
  * Struttura dati.
  * <p>Classe che inizializza la struttura dati e implementa i medoti per il controllo dei valori inseriti nella JTable
  * e di assegnazione dei vari tipi delle celle utilizzando il polimorfismo</p>
+ *
  * @author Mattia Lazzarini
  * @see java.io.Serializable
  */
@@ -35,11 +36,13 @@ public class DataStructure implements Serializable {
     /**
      * Struttura dati secondaria per la memorizzazione delle posizioni delle celle di
      * tipo operazione.
+     *
      * @see ArrayList
      */
     private final ArrayList<OperationsIndex> indices;
     /**
      * Struttura dati principale del foglio di calcolo.
+     *
      * @see ArrayList
      */
     private ArrayList<ArrayList<GeneralCell>> matrix;
@@ -128,6 +131,7 @@ public class DataStructure implements Serializable {
      * Vengono estratti dalla formula con interi le informazioni relative al valore degli operandi.
      * <p>Le informazioni estratte vengono salvati all'interno di un array di interi opCompnent, mentre il tipo di
      * operazione da compiere sugli operandi viene salvato all'interno del char op.</p>
+     *
      * @param cellContent Contenuto della cella di tipo formula
      */
     public void takeOperand(String cellContent) {
@@ -184,6 +188,7 @@ public class DataStructure implements Serializable {
 
     /**
      * Ritorna la struttura dati contenente gli indici delle operazioni.
+     *
      * @return Struttura dati contenente gli indici delle operazioni
      */
     public ArrayList<OperationsIndex> getIndices() {
@@ -192,6 +197,7 @@ public class DataStructure implements Serializable {
 
     /**
      * Ritorna la matrice contenente tutti i valori inseriti e le relative informazioni.
+     *
      * @return Matrice contenente tutti i valori inseriti e le relative informazioni
      */
     public ArrayList<ArrayList<GeneralCell>> getMatrix() {
@@ -200,6 +206,7 @@ public class DataStructure implements Serializable {
 
     /**
      * Ritorna l'array contenente i componenti dell'operazione immessa dall'utente.
+     *
      * @return Array di interi
      */
     public int[] getOpComponent() {

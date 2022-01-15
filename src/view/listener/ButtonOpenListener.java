@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Implementa l'evento per l'apertura di una file salvato.
+ *
  * @author Mattia Lazzarini
  * @see java.awt.event.ActionListener
  */
@@ -29,8 +30,9 @@ public class ButtonOpenListener implements ActionListener {
 
     /**
      * Salva una copia della Jtable, della struttura dati e della TableModel.
-     * @param table MyJTable
-     * @param data DataStructure
+     *
+     * @param table        MyJTable
+     * @param data         DataStructure
      * @param myTableModel MyTableModel
      */
     public ButtonOpenListener(MyJTable table, DataStructure data, MyTableModel myTableModel) {
@@ -41,6 +43,7 @@ public class ButtonOpenListener implements ActionListener {
 
     /**
      * Crea un oggetto {@link FileOpener}.
+     *
      * @param e {@link ActionEvent}
      */
     @Override

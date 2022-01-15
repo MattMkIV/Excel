@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * Reimplementazione della TableModel per gestire i vari tipi di dati inseriti.
+ *
  * @author Mattia Lazzarini
  * @see DefaultTableModel
  */
@@ -58,7 +59,13 @@ public class MyTableModel extends DefaultTableModel {
         for (int i = 0; i < this.row; i++)
             this.rowHeader.addElement(i + 1);
 
-        setDataVector(data.getMatrix().stream().map(u -> u.toArray(new GeneralCell[0])).toArray(Object[][]::new), null);
+        GeneralCell[][] buffer = new GeneralCell[data.getRow()][data.getCol()];
+
+        for (int i = 0; i < data.getRow(); i++)
+            for (int j = 0; j < data.getCol(); j++)
+                buffer[i][j] = data.getMatrix().get(i).get(j);
+
+        setDataVector(buffer, null);
     }
 
     /**
@@ -172,6 +179,7 @@ public class MyTableModel extends DefaultTableModel {
 
     /**
      * Ritorna il numero di righe della JTable.
+     *
      * @return Numero di righe
      */
     @Override
@@ -181,6 +189,7 @@ public class MyTableModel extends DefaultTableModel {
 
     /**
      * Ritorna il numero di colonne della JTable.
+     *
      * @return Numero di colonne
      */
     @Override

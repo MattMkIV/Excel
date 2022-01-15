@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Implementa l'evento per settare il valore nella cella selezionata.
+ *
  * @author Mattia Lazzarini
  * @see java.awt.event.ActionListener
  */
@@ -24,8 +25,9 @@ public class ButtonSetListener implements ActionListener {
 
     /**
      * Salva la JTable e un oggetto TopPanel.
+     *
      * @param panelTop TopPanel
-     * @param table MyJTable
+     * @param table    MyJTable
      */
     public ButtonSetListener(TopPanel panelTop, MyJTable table) {
         this.table = table;
@@ -34,11 +36,12 @@ public class ButtonSetListener implements ActionListener {
 
     /**
      * Prende ciò che è stato inserito nella JTextField e lo mette nella cella selezionata.
+     *
      * @param e {@link ActionEvent}
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(!table.isEditing()) {
+        if (!table.isEditing()) {
             int rowSelected = table.getSelectedRow();
             int colSelected = table.getSelectedColumn();
 

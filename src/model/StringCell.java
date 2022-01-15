@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Implementa il tipo cella stringa.
+ *
  * @author Mattia Lazzarini
  * @see model.GeneralCell
  * @see java.io.Serializable
@@ -16,6 +17,7 @@ public class StringCell extends GeneralCell implements Serializable {
 
     /**
      * Salva la stringa inserita dall'utente nella JTable.
+     *
      * @param string Stringa inserita
      */
     public StringCell(String string) {
@@ -24,6 +26,7 @@ public class StringCell extends GeneralCell implements Serializable {
 
     /**
      * Ritorna la stringa memorizzata.
+     *
      * @return Stringa memorizzata
      */
     @Override

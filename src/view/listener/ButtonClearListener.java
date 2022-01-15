@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Implementa l'evento del bottone di reset delle celle.
+ *
  * @author Mattia Lazzarini
  * @see java.awt.event.ActionListener
  */
@@ -18,6 +19,7 @@ public class ButtonClearListener implements ActionListener {
 
     /**
      * Salva una copia della JTable.
+     *
      * @param table JTable
      */
     public ButtonClearListener(MyJTable table) {
@@ -26,6 +28,7 @@ public class ButtonClearListener implements ActionListener {
 
     /**
      * Se è selezionata una cella o più celle della JTable ne cancella il contenuto riportandolo di tipo GeneralCell.
+     *
      * @param e {@link ActionEvent}
      */
     @Override
@@ -35,9 +38,9 @@ public class ButtonClearListener implements ActionListener {
         int r[] = table.getSelectedColumns();
         int c[] = table.getSelectedRows();
 
-        if(rowsSelected != 0 && colsSelected != 0)
-            for(int i=rowsSelected-1; i>=0; i--)
-                for(int j=colsSelected-1; j>=0; j--)
+        if (rowsSelected != 0 && colsSelected != 0)
+            for (int i = rowsSelected - 1; i >= 0; i--)
+                for (int j = colsSelected - 1; j >= 0; j--)
                     table.setValueAt("", c[i], r[j]);
     }
 }

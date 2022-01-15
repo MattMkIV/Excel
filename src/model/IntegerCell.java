@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Implementa il tipo cella intero.
+ *
  * @author Mattia Lazzarini
  * @see model.GeneralCell
  * @see java.io.Serializable
@@ -16,6 +17,7 @@ public class IntegerCell extends GeneralCell implements Serializable {
 
     /**
      * Memorizza il tipo intero inserito dall'utente nella JTable.
+     *
      * @param number Insero inserito
      */
     public IntegerCell(int number) {
@@ -24,6 +26,7 @@ public class IntegerCell extends GeneralCell implements Serializable {
 
     /**
      * Ritorna il numero memorizzato.
+     *
      * @return Numero memorizzato
      */
     @Override
@@ -33,6 +36,7 @@ public class IntegerCell extends GeneralCell implements Serializable {
 
     /**
      * Ritorna il numero memorizzato come tipo stringa.
+     *
      * @return Numero memorizzato di tipo stringa
      */
     @Override
