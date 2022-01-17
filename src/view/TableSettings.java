@@ -33,10 +33,10 @@ public class TableSettings extends JPanel {
      * @see MyJTable
      * @see DataStructure
      */
-    public TableSettings(JTextField viewBox) {
+    public TableSettings(JTextField viewBox, JTextField infoBox) {
         data = new DataStructure();
         myTableModel = new MyTableModel(data);
-        table = new MyJTable(myTableModel, viewBox);
+        table = new MyJTable(myTableModel, viewBox, infoBox);
 
         add(table);
     }

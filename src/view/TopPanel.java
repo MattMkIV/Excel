@@ -157,6 +157,15 @@ public class TopPanel extends JPanel {
     }
 
     /**
+     * Ritorna il JTextField che indica le coordinate della cella selezionata.
+     *
+     * @return JTextField che mostra le coordinate
+     */
+    public JTextField getInfoBox() {
+        return infoBox;
+    }
+
+    /**
      * RItorna il JTextField che permette la modifica delle celle.
      *
      * @return JTextField che permette la modifica delle celle

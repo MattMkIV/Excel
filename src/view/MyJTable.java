@@ -24,13 +24,20 @@ public class MyJTable extends JTable {
     private JTextField viewBox;
 
     /**
+     * JTextfField che mostra le coordinate di una cella.
+     * @see TopPanel
+     */
+    private JTextField infoBox;
+
+    /**
      * Salva il JTextField da modificare in caso di selezione di una cella e imposta  i comportamenti della JTable.
      *
      * @param myTableModel TableModel
      * @param viewBox      JTextField che mostra le informazioni di una cella
      */
-    public MyJTable(MyTableModel myTableModel, JTextField viewBox) {
+    public MyJTable(MyTableModel myTableModel, JTextField viewBox, JTextField infoBox) {
         this.viewBox = viewBox;
+        this.infoBox = infoBox;
 
         setRowHeight(22);
         setShowGrid(true);
@@ -43,7 +50,8 @@ public class MyJTable extends JTable {
     }
 
     /**
-     * Modifica il testo che deve essere mostrato sul viewBox una volta selezionata una cella.
+     * Modifica il testo che deve essere mostrato sul viewBox una volta selezionata una cella e mostra le
+     * coordinate della cella selezionata.
      *
      * @param renderer {@link TableCellRenderer}
      * @param row      Indice di riga
@@ -66,6 +74,8 @@ public class MyJTable extends JTable {
         JComponent cellRenderer = (JComponent) renderer.getTableCellRendererComponent(this, value, isSelected, hasFocus, row, col);
 
         if (isSelected) {
+            infoBox.setText((char) ('A' + getSelectedColumn()) + Integer.toString(getSelectedRow() + 1));
+
             if (((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col) instanceof OperationCell)
                 viewBox.setText(((OperationCell) ((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col)).getFormula());
             else

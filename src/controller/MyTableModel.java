@@ -135,7 +135,7 @@ public class MyTableModel extends DefaultTableModel {
         int firstOpValue = data.getMatrix().get(data.getOpComponent()[1]).get(data.getOpComponent()[0]).getResult();
         int secondOpValue = data.getMatrix().get(data.getOpComponent()[3]).get(data.getOpComponent()[2]).getResult();
 
-        boolean state = !(data.getMatrix().get(row).get(col) instanceof OperationCell);       //mi serve altrimenti mi aggiunge elementi all'arraylist all'infinito
+        boolean state = !(data.getMatrix().get(row).get(col) instanceof OperationCell);     //mi serve altrimenti mi aggiunge elementi all'arraylist all'infinito
 
         data.getMatrix().get(row).set(col, new OperationCell((String) value, data.getOp(), firstOpValue, secondOpValue));
 

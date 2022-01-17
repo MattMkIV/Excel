@@ -3,6 +3,7 @@ package view;
 import controller.MyTableModel;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /**

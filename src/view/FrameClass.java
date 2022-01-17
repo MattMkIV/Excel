@@ -28,7 +28,7 @@ public class FrameClass extends JFrame {
         setLayout(new BorderLayout());
 
         TopPanel topPanel = new TopPanel();
-        TableSettings tableSettings = new TableSettings(topPanel.getViewBox());
+        TableSettings tableSettings = new TableSettings(topPanel.getViewBox(), topPanel.getInfoBox());
 
         //topPanel listeners
         topPanel.getSaveAs().addActionListener(new ButtonSaverListener(tableSettings.getData()));
