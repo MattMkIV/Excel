@@ -4,6 +4,7 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 /**
  * Implementa i componenti del pannello superiore dell'interfaccia.
@@ -59,7 +60,7 @@ public class TopPanel extends JPanel {
         buttonClear = new JButton();
         buttonClear.setSize(new Dimension(21, 21));
 
-        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/X.png")));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/X.png"));
         Image img = icon.getImage().getScaledInstance(buttonClear.getWidth(), buttonClear.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
@@ -71,7 +72,7 @@ public class TopPanel extends JPanel {
         buttonSet = new JButton();
         buttonSet.setSize(new Dimension(21, 21));
 
-        icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/V.png")));
+        icon = new ImageIcon(getClass().getResource("/resources/V.png"));
         img = icon.getImage().getScaledInstance(buttonSet.getWidth(), buttonSet.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
@@ -86,7 +87,7 @@ public class TopPanel extends JPanel {
         saveAs = new JButton();
         saveAs.setSize(new Dimension(21, 21));
 
-        icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/SaveAs.png")));
+        icon = new ImageIcon(getClass().getResource("/resources/SaveAs.png"));
         img = icon.getImage().getScaledInstance(saveAs.getWidth(), saveAs.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
@@ -98,7 +99,7 @@ public class TopPanel extends JPanel {
         open = new JButton();
         open.setSize(new Dimension(21, 21));
 
-        icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Open.png")));
+        icon = new ImageIcon(getClass().getResource("/resources/Open.png"));
         img = icon.getImage().getScaledInstance(open.getWidth(), open.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
@@ -110,7 +111,7 @@ public class TopPanel extends JPanel {
         restore = new JButton();
         restore.setSize(new Dimension(21, 21));
 
-        icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Restore.png")));
+        icon = new ImageIcon(getClass().getResource("/resources/Restore.png"));
         img = icon.getImage().getScaledInstance(restore.getWidth(), restore.getHeight(), Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
 
