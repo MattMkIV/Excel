@@ -40,7 +40,7 @@ public class DataStructure implements Serializable {
      *
      * @see ArrayList
      */
-    private final ArrayList<OperationsIndex> indices;
+    private ArrayList<OperationsIndex> indices;
     /**
      * Struttura dati principale del foglio di calcolo.
      *
