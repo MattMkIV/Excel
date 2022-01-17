@@ -146,10 +146,13 @@ public class MyTableModel extends DefaultTableModel {
     /**
      * Aggiorna la struttura dati e il contenuto delle celle a seguito del cambiamento di un valore.
      * <p>Se:</p>
-     * </p><ul><li>Il valore inserito è diverso da una formula che ha come operandi altre celle verranno aggiornate
+     * <ul><li>Il valore inserito è diverso da una formula che ha come operandi altre celle verranno aggiornate
      * tutte le formule</li>
      * <li>Il valore inserito è una formula che ha come operandi altre celle allora vengono aggiornate solo le formule
      * inserite dopo quest'ultima</li></ul>
+     * @param all Se true aggiorna tutte le formule, altrimenti solo da quella modificata in poi
+     * @param row Indice di riga modificata
+     * @param col Indice di colonna modificata
      */
     public void fireTableDataChanged(boolean all, int row, int col) {
         if (!all) {
