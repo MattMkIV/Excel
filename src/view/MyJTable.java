@@ -34,6 +34,7 @@ public class MyJTable extends JTable {
      *
      * @param myTableModel TableModel
      * @param viewBox      JTextField che mostra le informazioni di una cella
+     * @param infoBox JTextField che mostra le coordinate
      */
     public MyJTable(MyTableModel myTableModel, JTextField viewBox, JTextField infoBox) {
         this.viewBox = viewBox;

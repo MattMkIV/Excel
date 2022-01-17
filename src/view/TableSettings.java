@@ -29,6 +29,7 @@ public class TableSettings extends JPanel {
      * Vengono inizializzate le classi contenenti la struttura dati, il TableModel e la MyJTable.
      *
      * @param viewBox JTextField con cui l'utente può interagire
+     * @param infoBox JTextField che mostra le coordinate
      * @see MyTableModel
      * @see MyJTable
      * @see DataStructure
