@@ -95,6 +95,7 @@ public class MyTableModel extends DefaultTableModel {
                 if (data.checkCorrectOperand()) {
                     setOperationCell(value, row, col);
                     super.setValueAt(data.getMatrix().get(row).get(col).getResult(), row, col);
+                    fireTableDataChanged(false, row, col);
                 }
                 break;
             }
@@ -103,7 +104,6 @@ public class MyTableModel extends DefaultTableModel {
 
                 data.getMatrix().get(row).set(col, new OperationCell((String) value, data.getOp(), data.getOpComponent()[0], data.getOpComponent()[1]));
                 super.setValueAt(data.getMatrix().get(row).get(col).getResult(), row, col);
-                fireTableDataChanged();
                 break;
             }
             case 3: {
@@ -115,11 +115,11 @@ public class MyTableModel extends DefaultTableModel {
                 break;
             }
         }
-
-        if (cellType != 1 && cellType != 2) {
+        if (cellType != 1 && cellType != 2)
             super.setValueAt(value, row, col);
-            fireTableDataChanged();
-        }
+
+        if (cellType != 1)
+            fireTableDataChanged(true, row, col);
     }
 
     /**
@@ -144,18 +144,31 @@ public class MyTableModel extends DefaultTableModel {
     }
 
     /**
-     * Aggiorna la struttura dati e la grafica della JTable con i cambiamenti.
-     * <p>Scorre la lista contente gli indici in cui sono presenti operazioni e le aggiorna se sono variati dei valori
-     * negli operandi.</p>
+     * Aggiorna la struttura dati e il contenuto delle celle a seguito del cambiamento di un valore.
+     * <p>Se:</p>
+     * </p><ul><li>Il valore inserito è diverso da una formula che ha come operandi altre celle verranno aggiornate
+     * tutte le formule</li>
+     * <li>Il valore inserito è una formula che ha come operandi altre celle allora vengono aggiornate solo le formule
+     * inserite dopo quest'ultima</li></ul>
      */
-    @Override
-    public void fireTableDataChanged() {
-        super.fireTableDataChanged();
+    public void fireTableDataChanged(boolean all, int row, int col) {
+        if (!all) {
+            int pos = 0;
+            for (int i = 0; i < data.getIndices().size(); i++)
+                if (data.getIndices().get(i).getRowIndex() == row && data.getIndices().get(i).getColIndex() == col)
+                    pos = i;
 
-        for (int i = 0; i < data.getIndices().size(); i++) {
-            String cellContent = ((OperationCell) data.getMatrix().get(data.getIndices().get(i).getRowIndex()).get(data.getIndices().get(i).getColIndex())).getFormula();
+            for (int i = pos + 1; i < data.getIndices().size(); i++) {
+                String cellContent = ((OperationCell) data.getMatrix().get(data.getIndices().get(i).getRowIndex()).get(data.getIndices().get(i).getColIndex())).getFormula();
 
-            setValueAt(cellContent, data.getIndices().get(i).getRowIndex(), data.getIndices().get(i).getColIndex());
+                setValueAt(cellContent, data.getIndices().get(i).getRowIndex(), data.getIndices().get(i).getColIndex());
+            }
+        } else {
+            for (int i = 0; i < data.getIndices().size(); i++) {
+                String cellContent = ((OperationCell) data.getMatrix().get(data.getIndices().get(i).getRowIndex()).get(data.getIndices().get(i).getColIndex())).getFormula();
+
+                setValueAt(cellContent, data.getIndices().get(i).getRowIndex(), data.getIndices().get(i).getColIndex());
+            }
         }
     }
 

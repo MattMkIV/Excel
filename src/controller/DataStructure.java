@@ -6,7 +6,8 @@ import model.StringCell;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
+
+import static java.util.regex.Pattern.matches;
 
 /**
  * Struttura dati.
@@ -83,9 +84,9 @@ public class DataStructure implements Serializable {
 
             String pattern = "=[A-Z][0-9]{1,3}?[+|\\-|*|/][A-Z][0-9]{1,3}?";
             String pattern2 = "=[0-9]+?[+|\\-|*|/][0-9]+?";
-            if (Pattern.matches(pattern, cellContent))
+            if (matches(pattern, cellContent))
                 return 1;
-            else if (Pattern.matches(pattern2, cellContent))
+            else if (matches(pattern2, cellContent))
                 return 2;
             else if (!cellContent.equals(""))
                 return 3;
