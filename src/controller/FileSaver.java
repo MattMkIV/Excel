@@ -24,7 +24,7 @@ public class FileSaver extends JFileChooser {
      * Costruttore per il salvataggio manuale.
      * <p>Mostra un JFileChooser per permettere all'utente di selezionare il percorso in cui salvare il file e se il nome
      * del file inserito dall'utente esiste già in quella cartella viene chiesto se si vuole sovrascrivere, inoltre
-     * aggiunge l'estensione .ex al nome del file.</p>
+     * aggiunge l'estensione .epog al nome del file.</p>
      *
      * @param data Classe con la struttura dati
      */
@@ -39,8 +39,8 @@ public class FileSaver extends JFileChooser {
         if (choice == JFileChooser.APPROVE_OPTION) {
             file = getSelectedFile();
 
-            if (!file.getPath().endsWith(".ex"))
-                file = new File(file.getPath() + ".ex");
+            if (!file.getPath().endsWith(".epog"))
+                file = new File(file.getPath() + ".epog");
 
             if (file.exists()) {
                 int result = JOptionPane.showConfirmDialog(null, "Il file in questa cartella esiste già, sovrascrivere?", "File già esistente", JOptionPane.YES_NO_CANCEL_OPTION);

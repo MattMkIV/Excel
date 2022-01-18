@@ -36,7 +36,7 @@ public class FileOpener extends JFileChooser {
     /**
      * Costrutture per l'apertura di un file scelto dall'utente.
      * <p>Permette di aprire un file scelto dall'utente tramite un JFileChooser, se il file selzionato non termina con
-     * l'estensione ".ex" viene mostrato un errore di incompatibilità</p>
+     * l'estensione ".epog" viene mostrato un errore di incompatibilità</p>
      *
      * @param table        JTable su cui mostrare i dati del file
      * @param data         Struttura su cui memorizzare i dati del file aperto
@@ -55,7 +55,7 @@ public class FileOpener extends JFileChooser {
         if (choice == JFileChooser.APPROVE_OPTION) {
             file = getSelectedFile();
 
-            if (!file.getPath().endsWith(".ex"))
+            if (!file.getPath().endsWith(".epog"))
                 JOptionPane.showMessageDialog(null, "È stato selezionato tipo di file non compatibile", "Formato errato!", JOptionPane.ERROR_MESSAGE);
             else
                 Opener();
