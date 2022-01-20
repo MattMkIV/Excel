@@ -81,15 +81,6 @@ public class MyJTable extends JTable {
                 viewBox.setText(((OperationCell) ((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col)).getFormula());
             else
                 viewBox.setText(value.toString());
-
-            if (((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col) instanceof OperationCell)
-                System.out.println("CELLA OPERAZIONE");
-            else if (((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col) instanceof IntegerCell)
-                System.out.println("CELLA INTERO");
-            else if (((MyTableModel) this.getModel()).getData().getMatrix().get(row).get(col) instanceof StringCell)
-                System.out.println("CELLA STRINGA");
-            else
-                System.out.println("CELLA GENERICA");
         }
 
         return cellRenderer;

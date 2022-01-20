@@ -4,7 +4,6 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 
 /**
  * Implementa i componenti del pannello superiore dell'interfaccia.
