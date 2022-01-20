@@ -46,6 +46,6 @@ public class ButtonRestoreListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        new FileOpener(table, data, myTableModel, new File(System.getProperty("java.io.tmpdir") + File.separator + "ProjectTmp.ex"));
+        new FileOpener(table, data, myTableModel, new File(System.getProperty("java.io.tmpdir") + File.separator + "ProjectTmp.epog"));
     }
 }
