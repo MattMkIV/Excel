@@ -11,7 +11,6 @@ import java.io.Serializable;
  * @see java.io.Serializable
  */
 public class GeneralCell implements Serializable {
-
     /**
      * Costruttore che inizializza la cella di tipo generico.
      */

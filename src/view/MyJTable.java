@@ -1,9 +1,7 @@
 package view;
 
 import controller.MyTableModel;
-import model.IntegerCell;
 import model.OperationCell;
-import model.StringCell;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
@@ -48,6 +46,7 @@ public class MyJTable extends JTable {
         setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         getTableHeader().setReorderingAllowed(false);
         setSelectionBackground(new Color(0, 0, 0, 45));
+        setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
     }
 
     /**
