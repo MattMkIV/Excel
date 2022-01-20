@@ -36,7 +36,7 @@ public class TableListener implements TableModelListener {
     }
 
     /**
-     * Avvia il salvataggio automatico quando viene effettuata la prima modifica alla JTable.
+     * Avvia il salvataggio automatico ogni 10 secondi da quando viene effettuata la prima modifica alla JTable.
      *
      * @param e {@link TableModelEvent}
      */
