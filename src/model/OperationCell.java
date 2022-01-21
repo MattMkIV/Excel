@@ -23,11 +23,11 @@ public class OperationCell extends GeneralCell implements Serializable {
      */
     private int secondOpValue;
     /**
-     * Tipo di operazione
+     * Tipo di operazione.
      */
     private char op;
     /**
-     * Formula
+     * Formula.
      */
     private String formula;
 
