@@ -1,7 +1,9 @@
 package view;
 
 import controller.MyTableModel;
+import model.IntegerCell;
 import model.OperationCell;
+import model.StringCell;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;

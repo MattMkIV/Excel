@@ -70,6 +70,8 @@ public class MyTableModel extends DefaultTableModel {
 
     /**
      * Imposta il valore nella matrice in base al tipo di dato inserito nella JTable.
+     * <p>Se è stata inserita una formula che ha come operandi delle stringhe stampa nella cella un messaggio di
+     * errore seguito dalla formula che causa l'errore.</p>
      *
      * @param value Valore inserito nella cella
      * @param row   Indice di riga della cella modificata
@@ -96,7 +98,8 @@ public class MyTableModel extends DefaultTableModel {
                     setOperationCell(value, row, col);
                     super.setValueAt(data.getMatrix().get(row).get(col).getResult(), row, col);
                     fireTableDataChanged(false, row, col);
-                }
+                } else
+                    setValueAt("Errore: " + value, row, col);
                 break;
             }
             case 2: {
@@ -150,6 +153,7 @@ public class MyTableModel extends DefaultTableModel {
      * tutte le formule</li>
      * <li>Il valore inserito è una formula che ha come operandi altre celle allora vengono aggiornate solo le formule
      * inserite dopo quest'ultima</li></ul>
+     * Viene stampato un messaggio di errore se una formula ha come operandi delle celle di tipo stringa.
      * @param all Se true aggiorna tutte le formule, altrimenti solo da quella modificata in poi
      * @param row Indice di riga modificata
      * @param col Indice di colonna modificata
@@ -170,7 +174,11 @@ public class MyTableModel extends DefaultTableModel {
             for (int i = 0; i < data.getIndices().size(); i++) {
                 String cellContent = ((OperationCell) data.getMatrix().get(data.getIndices().get(i).getRowIndex()).get(data.getIndices().get(i).getColIndex())).getFormula();
 
-                setValueAt(cellContent, data.getIndices().get(i).getRowIndex(), data.getIndices().get(i).getColIndex());
+                data.extractOperand(cellContent);
+                if(data.checkCorrectOperand())
+                    setValueAt(cellContent, data.getIndices().get(i).getRowIndex(), data.getIndices().get(i).getColIndex());
+                else
+                    setValueAt("Errore: " + ((OperationCell) data.getMatrix().get(data.getIndices().get(i).getRowIndex()).get(data.getIndices().get(i).getColIndex())).getFormula(), data.getIndices().get(i).getRowIndex(), data.getIndices().get(i).getColIndex());
             }
         }
     }
